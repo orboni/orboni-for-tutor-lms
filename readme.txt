@@ -4,7 +4,7 @@ Tags: crypto, cryptocurrency, usdt, bitcoin, tutor lms
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,6 +107,9 @@ Every request carries your Orboni secret key. Orboni's [Terms of Service](https:
 4. An order paid with crypto, with its history.
 
 == Changelog ==
+
+= 1.0.1 =
+* The notice that a newer Tutor LMS is needed shows on the Plugins screen only.
 
 = 1.0.0 =
 * First release: Tutor LMS's own checkout and Webhook URL, prices in 37 currencies, read-backs without a webhook, paying an unpaid order again.

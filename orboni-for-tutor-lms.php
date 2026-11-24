@@ -4,7 +4,7 @@
  * Plugin Name:       Orboni for Tutor LMS
  * Plugin URI:        https://orboni.com/docs/tutor-lms
  * Description:       Sell courses for crypto — USDT, USDC, BTC, ETH and more — paid straight to your own wallets. A payment method for Tutor LMS's own checkout; Orboni never holds your money.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Requires Plugins:  tutor
@@ -16,7 +16,7 @@
  */
 defined('ABSPATH') || exit;
 
-define('ORBONI_TUTOR_VERSION', '1.0.0');
+define('ORBONI_TUTOR_VERSION', '1.0.1');
 define('ORBONI_TUTOR_FILE', __FILE__);
 define('ORBONI_TUTOR_DIR', plugin_dir_path(__FILE__));
 define('ORBONI_TUTOR_URL', plugin_dir_url(__FILE__));
@@ -57,10 +57,11 @@ function orboni_tutor_init()
     Orboni_Tutor_Plugin::register();
 }
 
-/** Shown to whoever can activate plugins, while Tutor LMS is missing or older than 3.0. */
+/** Shown on the Plugins screen only, to whoever can activate plugins, while Tutor LMS is missing or older than 3.0. */
 function orboni_tutor_missing_notice()
 {
-    if (! current_user_can('activate_plugins')) {
+    $screen = function_exists('get_current_screen') ? get_current_screen() : null;
+    if (! $screen || $screen->id !== 'plugins' || ! current_user_can('activate_plugins')) {
         return;
     }
 
